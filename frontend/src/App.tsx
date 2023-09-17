@@ -1,33 +1,21 @@
 import { FC } from 'react';
-import { MantineProvider, Button } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { theme } from './theme';
-import { Notifications, notifications } from './components/notifications';
+import { Notifications } from './components/notifications';
 import { ErrorBoundary } from 'react-error-boundary';
+import { useColorScheme } from './hooks/useColorScheme';
 
 export const App: FC = () => {
+  const { colorScheme } = useColorScheme();
+
   return (
     <ErrorBoundary fallback={<div>Something went wrong</div>}>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{ ...theme, colorScheme }}
+      >
         <Notifications maxItems={3} />
-        <div className='app'>
-          <Button
-            onClick={() => {
-              notifications.add({
-                message: new Date().toLocaleTimeString(),
-                autoClose: 5000,
-              });
-            }}
-          >
-            Add Notification
-          </Button>
-          <Button
-            onClick={() => {
-              notifications.clear();
-            }}
-          >
-            Clear Notifications
-          </Button>
-        </div>
       </MantineProvider>
     </ErrorBoundary>
   );
