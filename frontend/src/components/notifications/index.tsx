@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import './styles/notifications.scss';
+import classes from './styles/notifications.module.scss';
 import { Notification } from '@mantine/core';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -57,8 +57,7 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
           break;
         default:
           throw new Error(
-            `Unknown notification event action: ${
-              (eventData as { action: string }).action
+            `Unknown notification event action: ${(eventData as { action: string }).action
             }`
           );
       }
@@ -75,7 +74,7 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
   };
 
   return (
-    <div className='notifications'>
+    <div className={classes.notifications}>
       {notifications.slice(0, maxItems).map(n => (
         <Notification
           key={n.id}

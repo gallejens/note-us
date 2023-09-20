@@ -5,7 +5,7 @@ import {
 } from '@mantine/hooks';
 
 export const useColorScheme = () => {
-  const preferredColorScheme = usePreferredColorScheme();
+  const preferredColorScheme = usePreferredColorScheme('dark');
 
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'mantine-color-scheme',

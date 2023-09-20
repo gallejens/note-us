@@ -11,7 +11,6 @@ const homeRoute = new Route({
     component: HomePage
 })
 
-
 const loginRoute = new Route({
     getParentRoute: () => rootRoute,
     path: '/login',
