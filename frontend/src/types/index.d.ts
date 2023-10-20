@@ -7,3 +7,4 @@ namespace MainStore {
     increaseCount: () => void;
   };
 }
+

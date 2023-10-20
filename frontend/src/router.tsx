@@ -1,35 +1,38 @@
-import { RootRoute, Route, Router } from '@tanstack/react-router'
-import { HomePage } from './components/home'
-import { LoginPage } from './components/login'
-import { SignupPage } from './components/signup'
+import { RootRoute, Route, Router } from '@tanstack/react-router';
+import { HomePage } from './pages/home';
+import { LoginPage } from './pages/login';
+import { RegisterPage } from './pages/register';
 
-const rootRoute = new RootRoute()
+const rootRoute = new RootRoute();
 
 const homeRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: '/',
-    component: HomePage
-})
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: HomePage,
+  beforeLoad: async () => {
+    // check auth
+  },
+});
 
 const loginRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: '/login',
-    component: LoginPage
-})
+  getParentRoute: () => rootRoute,
+  path: '/login',
+  component: LoginPage,
+});
 
-const signupRoute = new Route({
-    getParentRoute: () => rootRoute,
-    path: '/signup',
-    component: SignupPage
-})
+const registerRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: '/register',
+  component: RegisterPage,
+});
 
-const routeTree = rootRoute.addChildren([homeRoute, loginRoute, signupRoute])
+const routeTree = rootRoute.addChildren([homeRoute, loginRoute, registerRoute]);
 
-const router = new Router({ routeTree })
-export default router
+const router = new Router({ routeTree });
+export default router;
 
 declare module '@tanstack/react-router' {
-    interface Register {
-        router: typeof router
-    }
+  interface Register {
+    router: typeof router;
+  }
 }

@@ -21,7 +21,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-use-before-define': 'off',
     'array-callback-return': 'error',
-    'no-unused-vars': 'off',
     'spaced-comment': 'off',
     'no-async-promise-executor': 'off',
     'no-mixed-spaces-and-tabs': 'warn',
@@ -47,3 +46,4 @@ module.exports = {
     'simple-import-sort/exports': 'error',
   },
 };
+

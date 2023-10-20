@@ -1,0 +1,25 @@
+.register_modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  & > :first-child {
+    padding: 3vh;
+  }
+
+  & form:first-of-type {
+    width: 50vh;
+
+    & > :not(:last-child) {
+      margin-bottom: 2vh;
+    }
+  }
+
+  & .login_button {
+    color: var(--mantine-color-primary-3);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

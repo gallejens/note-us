@@ -2,36 +2,14 @@ import { FC, useEffect, useState } from 'react';
 import classes from './styles/notifications.module.scss';
 import { Notification } from '@mantine/core';
 import { v4 as uuidv4 } from 'uuid';
-
-const DEFAULT_MAX_ITEMS = 5;
-
-const dispatchNotificationEvent = (eventData: Notifications.Event) => {
-  const event = new CustomEvent<Notifications.Event>('notification', {
-    detail: eventData,
-  });
-  window.dispatchEvent(event);
-};
-
-export const notifications = {
-  add: (notification: Notifications.Notification) => {
-    dispatchNotificationEvent({
-      action: 'add',
-      notification,
-    });
-  },
-  clear: () => {
-    dispatchNotificationEvent({
-      action: 'clear',
-    });
-  },
-};
+import { DEFAULT_MAX_NOTIFICATION_ITEMS } from './constants';
 
 export const Notifications: FC<{ maxItems?: number }> = props => {
   const [notifications, setNotifications] = useState<
     ({ id: string } & Notifications.Notification)[]
   >([]);
 
-  const maxItems = props.maxItems ?? DEFAULT_MAX_ITEMS;
+  const maxItems = props.maxItems ?? DEFAULT_MAX_NOTIFICATION_ITEMS;
 
   useEffect(() => {
     const timeouts = new Set<number>();
@@ -57,7 +35,8 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
           break;
         default:
           throw new Error(
-            `Unknown notification event action: ${(eventData as { action: string }).action
+            `Unknown notification event action: ${
+              (eventData as { action: string }).action
             }`
           );
       }
@@ -80,7 +59,7 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
           key={n.id}
           color={n.color}
           icon={n.icon}
-          title={n.title ?? n.id}
+          title={n.title}
           loading={n.loading}
           withCloseButton={!n.hideCloseButton}
           onClose={() => {
@@ -98,4 +77,3 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
   );
 };
 
-export default Notifications;
