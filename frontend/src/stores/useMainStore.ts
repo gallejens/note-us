@@ -6,4 +6,3 @@ export const useMainStore = create<MainStore.State & MainStore.StateActions>(
     increaseCount: () => set(s => ({ count: s.count + 1 })),
   })
 );
-

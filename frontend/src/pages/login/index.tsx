@@ -1,18 +1,20 @@
+import { FC } from 'react';
 import {
   Button,
   Checkbox,
   Divider,
   Paper,
   PasswordInput,
+  Text,
   TextInput,
   Title,
-  Text,
 } from '@mantine/core';
-import { FC } from 'react';
-import classes from './styles/login.module.scss';
 import { useForm } from '@mantine/form';
 import { useNavigate } from '@tanstack/react-router';
+
 import { useLoadingOverlayStore } from '../../components/loadingoverlay/stores/useLoadingOverlayStore';
+
+import classes from './styles/login.module.scss';
 
 type FormValues = {
   email: string;

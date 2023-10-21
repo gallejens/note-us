@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import classes from './styles/modaloverlay.module.scss';
 
 export const ModalOverlay: FC = () => {

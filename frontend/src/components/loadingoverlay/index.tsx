@@ -1,7 +1,9 @@
 import { FC } from 'react';
-import { useLoadingOverlayStore } from './stores/useLoadingOverlayStore';
-import classes from './styles/loadingoverlay.module.scss';
 import { Loader } from '@mantine/core';
+
+import { useLoadingOverlayStore } from './stores/useLoadingOverlayStore';
+
+import classes from './styles/loadingoverlay.module.scss';
 
 export const LoadingOverlay: FC = () => {
   const { visible } = useLoadingOverlayStore();

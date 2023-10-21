@@ -1,4 +1,5 @@
 import { RootRoute, Route, Router } from '@tanstack/react-router';
+
 import { HomePage } from './pages/home';
 import { LoginPage } from './pages/login';
 import { RegisterPage } from './pages/register';

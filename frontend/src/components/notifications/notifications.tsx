@@ -1,8 +1,10 @@
 import { FC, useEffect, useState } from 'react';
-import classes from './styles/notifications.module.scss';
 import { Notification } from '@mantine/core';
 import { v4 as uuidv4 } from 'uuid';
+
 import { DEFAULT_MAX_NOTIFICATION_ITEMS } from './constants';
+
+import classes from './styles/notifications.module.scss';
 
 export const Notifications: FC<{ maxItems?: number }> = props => {
   const [notifications, setNotifications] = useState<
@@ -18,7 +20,7 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
       if (!eventData)
         throw new Error('No event data provided for notification event');
       switch (eventData.action) {
-        case 'add':
+        case 'add': {
           const id = uuidv4();
           setNotifications(n => [...n, { id, ...eventData.notification }]);
 
@@ -30,6 +32,7 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
             timeouts.add(timeout);
           }
           break;
+        }
         case 'clear':
           setNotifications([]);
           break;
@@ -76,4 +79,3 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
     </div>
   );
 };
-

@@ -4,7 +4,6 @@ import {
   MantineThemeColors,
   mergeMantineTheme,
 } from '@mantine/core';
-
 import { DefaultMantineColor, MantineColorsTuple } from '@mantine/core';
 
 type ExtendedCustomColors =
@@ -85,4 +84,3 @@ const overrideTheme = createTheme({
 });
 
 export default mergeMantineTheme(DEFAULT_THEME, overrideTheme);
-

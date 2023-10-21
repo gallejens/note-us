@@ -1,5 +1,5 @@
-import { useMantineColorScheme, Button } from '@mantine/core';
 import { FC } from 'react';
+import { Button,useMantineColorScheme } from '@mantine/core';
 
 export const HomePage: FC = () => {
   const { toggleColorScheme } = useMantineColorScheme();

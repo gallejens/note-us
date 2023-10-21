@@ -18,4 +18,3 @@ namespace Notifications {
         action: 'clear';
       };
 }
-
