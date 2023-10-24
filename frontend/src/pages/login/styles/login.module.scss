@@ -1,25 +1,35 @@
-.login_modal {
+.login_page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
 
-  & > :first-child {
-    padding: 3vh;
-  }
+  & .wrapper {
+    background-color: var(--mantine-color-secondary-8);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5vh;
+    height: 50vh;
 
-  & form:first-of-type {
-    width: 50vh;
+    & > div {
+      padding: 5vh;
+      width: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    & > :not(:last-child) {
-      margin-bottom: 2vh;
+      & > form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+      }
     }
-  }
 
-  & .register_button {
-    color: var(--mantine-color-primary-3);
-    cursor: pointer;
-    text-decoration: underline;
+    & > div:hover {
+      background-color: var(--mantine-color-secondary-5);
+      border-radius: 10% 0;
+    }
   }
 }

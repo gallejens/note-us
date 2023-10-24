@@ -55,6 +55,8 @@ export const Notifications: FC<{ maxItems?: number }> = props => {
     setNotifications(n => n.filter(n => n.id !== id));
   };
 
+  if (notifications.length === 0) return null;
+
   return (
     <div className={classes.notifications}>
       {notifications.slice(0, maxItems).map(n => (

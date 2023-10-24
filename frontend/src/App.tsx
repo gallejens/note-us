@@ -15,10 +15,10 @@ export const App: FC = () => {
   return (
     <ErrorBoundary fallback={<div>Something went wrong</div>}>
       <MantineProvider theme={theme} defaultColorScheme='dark'>
+        <RouterProvider router={router} />
         <LoadingOverlay />
         <ModalOverlay />
         <Notifications maxItems={3} />
-        <RouterProvider router={router} />
       </MantineProvider>
     </ErrorBoundary>
   );
